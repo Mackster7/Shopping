@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6840EC702DB3AC550097E1E2 /* AITestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6840EC6F2DB3AC550097E1E2 /* AITestHelper.swift */; };
+		68C3CDB72DB2DEFC00C13026 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 68C3CDB62DB2DEFC00C13026 /* GoogleGenerativeAI */; };
+		68C3CDBE2DB2DF4B00C13026 /* AICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C3CDBD2DB2DF4B00C13026 /* AICall.swift */; };
 		B103D8192C542BE6000FA048 /* ShoppingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D8182C542BE6000FA048 /* ShoppingApp.swift */; };
 		B103D81B2C542BE6000FA048 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B103D81A2C542BE6000FA048 /* LoginView.swift */; };
 		B103D81D2C542BE7000FA048 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B103D81C2C542BE7000FA048 /* Assets.xcassets */; };
@@ -67,6 +70,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6840EC6F2DB3AC550097E1E2 /* AITestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AITestHelper.swift; sourceTree = "<group>"; };
+		68C3CDBD2DB2DF4B00C13026 /* AICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AICall.swift; sourceTree = "<group>"; };
 		B103D8152C542BE6000FA048 /* Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B103D8182C542BE6000FA048 /* ShoppingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingApp.swift; sourceTree = "<group>"; };
 		B103D81A2C542BE6000FA048 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C3CDB72DB2DEFC00C13026 /* GoogleGenerativeAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +201,8 @@
 			children = (
 				B103D8332C542BE7000FA048 /* ShoppingUITests.swift */,
 				B103D8352C542BE7000FA048 /* ShoppingUITestsLaunchTests.swift */,
+				68C3CDBD2DB2DF4B00C13026 /* AICall.swift */,
+				6840EC6F2DB3AC550097E1E2 /* AITestHelper.swift */,
 			);
 			path = ShoppingUITests;
 			sourceTree = "<group>";
@@ -511,6 +519,8 @@
 			);
 			mainGroup = B103D80C2C542BE6000FA048;
 			packageReferences = (
+				68C3CDB52DB2DEFC00C13026 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
+				6840EC712DB576560097E1E2 /* XCRemoteSwiftPackageReference "NaviTest" */,
 			);
 			productRefGroup = B103D8162C542BE6000FA048 /* Products */;
 			projectDirPath = "";
@@ -603,8 +613,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68C3CDBE2DB2DF4B00C13026 /* AICall.swift in Sources */,
 				B103D8362C542BE7000FA048 /* ShoppingUITestsLaunchTests.swift in Sources */,
 				B103D8342C542BE7000FA048 /* ShoppingUITests.swift in Sources */,
+				6840EC702DB3AC550097E1E2 /* AITestHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,7 +940,31 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		6840EC712DB576560097E1E2 /* XCRemoteSwiftPackageReference "NaviTest" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mackster7/NaviTest";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		68C3CDB52DB2DEFC00C13026 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		68C3CDB62DB2DEFC00C13026 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68C3CDB52DB2DEFC00C13026 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
 		B1405C7D2C54F00C0097C774 /* DummyAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DummyAPI;

@@ -45,8 +45,8 @@
       shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "YES"
+            parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B103D8242C542BE7000FA048"
@@ -65,6 +65,17 @@
                BlueprintName = "ShoppingUITests"
                ReferencedContainer = "container:Shopping.xcodeproj">
             </BuildableReference>
+            <SelectedTests>
+               <Test
+                  Identifier = "ShoppingUITests/testExample()">
+               </Test>
+               <Test
+                  Identifier = "ShoppingUITests/testLaunchPerformance()">
+               </Test>
+               <Test
+                  Identifier = "ShoppingUITestsLaunchTests/testLaunch()">
+               </Test>
+            </SelectedTests>
          </TestableReference>
       </Testables>
    </TestAction>

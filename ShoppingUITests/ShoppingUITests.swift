@@ -22,12 +22,32 @@ final class ShoppingUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testWithAI() async {
         let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // Define all test steps upfront for better readability
+        let testSteps = [
+            "Click on login button",
+            "Verify user is in app home screen",
+            "Tap on product name referring to lipstick",
+            "add the product as favorite",
+            "add to cart",
+            "Verify lipstick is added to cart",
+            "Tap on Continue inorder to checkout",
+            "Tap on Complete Order",
+            "Verify order created success message"
+        ]
+        
+        // Execute steps with consistent wait times
+        for step in testSteps {
+            do {
+                try await app.executeAIStep(step)
+            } catch let error as UITestError {
+                XCTFail("Step '\(step)' failed: \(error.description)")
+            } catch {
+                XCTFail("Step '\(step)' failed with unknown error: \(error)")
+            }
+        }
     }
 
     func testLaunchPerformance() throws {
@@ -37,5 +57,13 @@ final class ShoppingUITests: XCTestCase {
                 XCUIApplication().launch()
             }
         }
+    }
+}
+
+extension String {
+    func slice(from: String, to: String) -> String? {
+        guard let start = range(of: from)?.upperBound else { return nil }
+        guard let end = range(of: to, range: start..<endIndex)?.lowerBound else { return nil }
+        return String(self[start..<end])
     }
 }
