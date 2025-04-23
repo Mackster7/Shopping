@@ -9,61 +9,60 @@ import XCTest
 
 final class ShoppingUITests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  override func setUpWithError() throws {
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
+    // In UI tests it is usually best to stop immediately when a failure occurs.
+    continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+  }
+
+  override func tearDownWithError() throws {
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+  }
+
+  func testWithAI() async {
+    let app = await XCUIApplication()
+    await app.launch()
+
+    let testSteps = [
+      "Click on login button",
+      "Verify user is in app home screen",
+      "Tap on product name referring to lipstick",
+      "add the product as favorite",
+      "add to cart",
+      "Verify lipstick is added to cart",
+      "Tap on Continue inorder to checkout",
+      "Tap on Complete Order",
+      "Verify order created success message"
+    ]
+
+    for step in testSteps {
+      do {
+        try await app.executeAIStep(step)
+      } catch let error as UITestError {
+        XCTFail("Step '\(step)' failed: \(error.description)")
+      } catch {
+        XCTFail("Step '\(step)' failed with unknown error: \(error)")
+      }
     }
+  }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+  func testLaunchPerformance() throws {
+    if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
+      // This measures how long it takes to launch your application.
+      measure(metrics: [XCTApplicationLaunchMetric()]) {
+        XCUIApplication().launch()
+      }
     }
-
-    func testWithAI() async {
-        let app = XCUIApplication()
-        app.launch()
-        // Define all test steps upfront for better readability
-        let testSteps = [
-            "Click on login button",
-            "Verify user is in app home screen",
-            "Tap on product name referring to lipstick",
-            "add the product as favorite",
-            "add to cart",
-            "Verify lipstick is added to cart",
-            "Tap on Continue inorder to checkout",
-            "Tap on Complete Order",
-            "Verify order created success message"
-        ]
-        
-        // Execute steps with consistent wait times
-        for step in testSteps {
-            do {
-                try await app.executeAIStep(step)
-            } catch let error as UITestError {
-                XCTFail("Step '\(step)' failed: \(error.description)")
-            } catch {
-                XCTFail("Step '\(step)' failed with unknown error: \(error)")
-            }
-        }
-    }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
+  }
 }
 
 extension String {
-    func slice(from: String, to: String) -> String? {
-        guard let start = range(of: from)?.upperBound else { return nil }
-        guard let end = range(of: to, range: start..<endIndex)?.lowerBound else { return nil }
-        return String(self[start..<end])
-    }
+  func slice(from: String, to: String) -> String? {
+    guard let start = range(of: from)?.upperBound else { return nil }
+    guard let end = range(of: to, range: start..<endIndex)?.lowerBound else { return nil }
+    return String(self[start..<end])
+  }
 }

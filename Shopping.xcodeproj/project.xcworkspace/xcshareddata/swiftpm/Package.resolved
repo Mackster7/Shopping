@@ -1,5 +1,5 @@
 {
-  "originHash" : "ca45579f5f577c797501417f2586acf75128b137bc4a05fe1e7c57406acd81cb",
+  "originHash" : "fdeb6416e7184e4ad1e1f035624d26d09c63ead65b63f022dc0862d2e58cb15b",
   "pins" : [
     {
       "identity" : "generative-ai-swift",
@@ -8,15 +8,6 @@
       "state" : {
         "revision" : "44b8ce120425f9cf53ca756f3434ca2c2696f8bd",
         "version" : "0.5.6"
-      }
-    },
-    {
-      "identity" : "navitest",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Mackster7/NaviTest",
-      "state" : {
-        "branch" : "main",
-        "revision" : "1b7f075e012bb35fc404fb93687ca82831ebd049"
       }
     }
   ],
