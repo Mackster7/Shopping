@@ -35,10 +35,14 @@ class AITestHelper {
 
   static func generateElementQuery(for step: String, appDescription: String) async -> String {
     let actionPrompt = """
-            You are a senior iOS developer and you are supposed to return only XCUIElement query with action
-            if required as per step. If you didn't find the target element just return 'Not Found'.
-            step: \(step); description: \(appDescription)
-            """
+    You are an expert iOS UI testing assistant. Your sole task is to generate a single line of XCUIAutomation code to interact with an element based on the provided step and element details. Always use coordinate-based interaction regardless of other available selectors. Do not include any code blocks, language identifiers, or explanations in your response. If the target element cannot be identified, return only the text 'Not Found'.
+    Here is an examples:
+    Step: Click on Buy button 
+    Element Details: Button, 0x105e738a0, {{180.3, 509.3}, {41.7, 24.3}}, label: 'Login'
+    Button coordinates are: {180.3, 509.3}
+    Output: app.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0)).withOffset(CGVector(dx: 180.3, dy: 509.3)).tap()
+    step: \(step); description: \(appDescription)
+    """
     return await AICall(prompt: actionPrompt).getPromptResponse()
   }
 

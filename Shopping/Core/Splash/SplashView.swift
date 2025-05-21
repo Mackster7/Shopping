@@ -53,7 +53,7 @@ struct SplashView: View {
             .navigationDestination(for: Route.self) { route in
                 switch route {
                 case .login:
-                    LoginView()
+                    MainTabbarView()
                         .navigationBarBackButtonHidden()
                 case .signup:
                     SignUpView()

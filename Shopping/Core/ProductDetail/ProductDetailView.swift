@@ -160,6 +160,7 @@ extension ProductDetailView {
                       imageTint: .red,
                       width: 128
                   )
+                  .accessibilityIdentifier("favoriteButton")
                   
                   CustomButton(
                       imageName: "cart",
@@ -168,6 +169,7 @@ extension ProductDetailView {
                       imageTint: .white,
                       width: 128
                   )
+                  .accessibilityIdentifier("addToCartButton")
                   
                   Spacer()
               }

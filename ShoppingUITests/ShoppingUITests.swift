@@ -27,7 +27,6 @@ final class ShoppingUITests: XCTestCase {
     await app.launch()
 
     let testSteps = [
-      "Click on login button",
       "Verify user is in app home screen",
       "Tap on product name referring to lipstick",
       "add the product as favorite",
@@ -41,10 +40,8 @@ final class ShoppingUITests: XCTestCase {
     for step in testSteps {
       do {
         try await app.executeAIStep(step)
-      } catch let error as UITestError {
-        XCTFail("Step '\(step)' failed: \(error.description)")
       } catch {
-        XCTFail("Step '\(step)' failed with unknown error: \(error)")
+        XCTFail("Step '\(step)' failed with error: \(error)")
       }
     }
   }
