@@ -46,13 +46,37 @@ final class ShoppingUITests: XCTestCase {
     }
   }
 
-  func testLaunchPerformance() throws {
-    if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-      // This measures how long it takes to launch your application.
-      measure(metrics: [XCTApplicationLaunchMetric()]) {
-        XCUIApplication().launch()
+  func testPurchaseFlow() async {
+    let scenarios = SimpleScenarioReader.SimpleScenarioReader(fileName: "scenarios")
+    guard let scenario = scenarios.first(where: { $0.name == "Purchase Flow" }) else {
+      XCTFail("Lipstick Purchase Flow scenario not found")
+      return
+    }
+    print(scenario)
+    await executeScenario(scenario)
+  }
+
+  func executeScenario(_ scenario: TestScenario) async {
+    // Launch app for each scenario
+    let app = await XCUIApplication()
+    await app.launch()
+
+    print("🧪 Running scenario: \(scenario.name)")
+
+    for (stepIndex, step) in scenario.steps.enumerated() {
+      do {
+        print("📝 Step \(stepIndex + 1): \(step)")
+        try await app.executeAIStep(step)
+        print("✅ Step completed successfully")
+      } catch {
+        let errorMessage = "Step '\(step)' failed with error: \(error)"
+        print("❌ \(errorMessage)")
+        XCTFail(errorMessage)
+        return // Stop execution on first failure
       }
     }
+
+    print("🎉 Scenario '\(scenario.name)' completed successfully")
   }
 }
 

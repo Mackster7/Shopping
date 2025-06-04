@@ -1,0 +1,14 @@
+// MARK: - Usage Example with Text File
+/*
+ Create a file named "scenarios.txt" with this format:
+
+ ---SCENARIO---
+ Purchase Flow
+ Verify user is in app home screen
+ Tap on product name referring to lipstick
+ add the product as favorite
+ add to cart
+ Verify lipstick is added to cart
+ Tap on Continue inorder to checkout
+ Tap on Complete Order
+ Verify order created success message

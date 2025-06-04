@@ -1,0 +1,46 @@
+{
+  "configurations" : [
+    {
+      "id" : "20D3413E-43BE-4412-BE10-4A9596FF0087",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-GoogleGenerativeAIDebugLogEnabled"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Shopping.xcodeproj",
+      "identifier" : "B103D8142C542BE6000FA048",
+      "name" : "Shopping"
+    }
+  },
+  "testTargets" : [
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:Shopping.xcodeproj",
+        "identifier" : "B103D8242C542BE7000FA048",
+        "name" : "ShoppingTests"
+      }
+    },
+    {
+      "selectedTests" : [
+        "ShoppingUITests\/testExample()",
+        "ShoppingUITests\/testLaunchPerformance()",
+        "ShoppingUITestsLaunchTests\/testLaunch()"
+      ],
+      "target" : {
+        "containerPath" : "container:Shopping.xcodeproj",
+        "identifier" : "B103D82E2C542BE7000FA048",
+        "name" : "ShoppingUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -17,7 +17,7 @@ class AICall {
     }
 
     public func getPromptResponse() async -> String {
-        let model = GenerativeModel(name: "gemini-2.0-flash", apiKey: apiKey)
+        let model = GenerativeModel(name: "gemini-2.5-flash-preview-04-17", apiKey: apiKey)
         do {
             let response = try await model.generateContent(prompt)
             if let text = response.text {
