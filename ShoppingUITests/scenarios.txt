@@ -2,13 +2,17 @@
 /*
  Create a file named "scenarios.txt" with this format:
 
- ---SCENARIO---
- Purchase Flow
- Verify user is in app home screen
- Tap on product name referring to lipstick
- add the product as favorite
- add to cart
- Verify lipstick is added to cart
- Tap on Continue inorder to checkout
- Tap on Complete Order
- Verify order created success message
+Scenario: Purchase Flow
+Given Verify user is in app home screen
+When Tap on product name referring to lipstick
+Then add the product as favorite
+When add to cart
+Then Verify lipstick is added to cart
+When Tap on Continue inorder to checkout
+Then Tap on Complete Order
+Then Verify order created success message
+
+Scenario: Apply Filter In App Home Screen
+Given Verify user is in app home screen
+When Tap on furniture filter
+Then Select a product which has discription as "Bed"
