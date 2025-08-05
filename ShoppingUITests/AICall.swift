@@ -9,7 +9,7 @@ import Foundation
 import GoogleGenerativeAI
 
 class AICall {
-    let apiKey = "AIzaSyDd1xLBR0oBBiUPvvpbueT7bIC1AnDcou8"
+    let apiKey = "Add your API key here"
     var prompt: String
     
     init(prompt: String) {
